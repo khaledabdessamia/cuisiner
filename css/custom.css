@@ -22,13 +22,15 @@ text-decoration: none;
 font-family: 'cac_champagneregular';
 }
 
-
-
+.row
+{
+  margin-right: 0 !important;
+}
 ol, ul {
   list-style: none;
 }
 
-h1 , h2 , h1 a 
+h1 , h1 a 
 {
 text-align: center;
 color: inherit;
@@ -69,7 +71,7 @@ outline: 0;
 }
 
 #nav > ul > li.current > a {
-background: #d52349;
+background: #007bff;
 color: #fff !important;
 font-weight: 700;
 }
@@ -140,7 +142,7 @@ vertical-align: baseline;
 
 #banner header p {
   font-size: 1.5em;
-  color: #d52349;
+  color: #007bff;
   padding: 0;
   font-style: normal;
   margin: 0;
@@ -185,6 +187,26 @@ header.major h2 {
 h4.card-title > a
 {
   color: orange;
+}
+
+.meta-border{
+border-left-color: #5bc0de !important;
+}
+.meta
+{
+  padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+
+.post-meta
+{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1.25em;
 }
 
 .qsn-ct-bg{
@@ -454,8 +476,16 @@ ul.social {
 
 .media
 {
-background-color: #fff;
+  height: 12em; 
+  background-color: #fff;
 }
+
+.post .post-meta{font-size:1.50em;display:block;font-family:inherit;}
+.post .post-meta span,
+.post .post-meta i{color:#777;}
+.post-meta span{color:black !important;}
+
+.eye-right{float:right;margin-right:5px;font-size:0.9em;cursor:default;}
 
 input[type="datetime-local"]
 {

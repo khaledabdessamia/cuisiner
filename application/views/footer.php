@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- footer -->
     <div id="footer-wrapper" style="padding-bottom: 0;">
 					<section id="footer" >
-                        <div class="row" style="background-color: #000;">
+                        <div class="row" style="margin-right: 0; background-color: #000;">
                             <div id="GEN-42-footer" class="container m-0 p-5">
 
                                 <!-- Info Bottom - Footer Center-->
@@ -27,10 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <!-- Menu-->
                                             <ul class="menu-footer">
                                                 <li>- <a href="<?php site_url(); ?>">Accueil</a> </li>
-                                                <li>- <a href="">Recattes</a></li>
+                                                <li>- <a href="<?php echo site_url('recettes'); ?>">Recattes</a></li>
                                                 <li>- <a href="https://gen-42.com/">Gen 42</a></li>
-                                                <li>- <a href=""></a></li>
-                                                <li>- <a href=""></a></li>
+                                                <li>- <a href="<?php echo site_url('contact'); ?>">Nous contacter</a></li>
+                                                <li>- <a href="<?php echo site_url('apropos'); ?>">A propos</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -96,13 +96,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                        <div class="row" style="display: block; text-align: center;background-color: #000;">
+                        <div class="row" style="margin-right: 0; display: block; text-align: center;background-color: #000;">
                             <div class="col-12 ">
 
                                 <!-- Copyright -->
                                     <div id="copyright" >
                                         <ul class="links" style="">
-                                            <li><a href="#">Cuisiner</a> © 2017, Tous droits réservés.</li>
+                                            <li><a href="<?php echo site_url(); ?>">Cuisiner</a> © 2017, Tous droits réservés.</li>
                                         </ul>
                                     </div>
 

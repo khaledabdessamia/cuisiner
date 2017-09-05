@@ -26,5 +26,21 @@ class Cuisiner_db extends CI_Model {
             return $query->result();
 
         }
+        public function get_recettes($limit, $offset)
+        {
+            # code...
+            $this->db->select('ID, Nom,categorie, meta_description, date_publication, nb_vue, lien_img');
+            $this->db->order_by('date_publication', 'DESC');
+            $query = $this->db->get_where('recette', array('etat' => 'publiee'), $limit, $offset);
+            return $query->result();
+        }
+
+        public function get_recette($ID)
+        {
+            # code...
+            $query = $this->db->get_where('recette', array('ID' => $ID , 'etat' => 'publiee'));
+            return $query->row();
+
+        }
 
 }

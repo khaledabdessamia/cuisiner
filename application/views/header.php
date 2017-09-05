@@ -25,6 +25,7 @@ $this->load->helper('url');
 
 	<link rel="stylesheet" href="<?php echo site_url('css/custom.css'); ?>">
 
+
 	<link rel="icon" type="image/png" href="<?php echo site_url('favicon.png'); ?>">
 </head>
 	
@@ -35,7 +36,7 @@ $this->load->helper('url');
 
             <div class="row justify-content-center">
                 <h1 class="col-12 pt-5 pb-3"> <a  href="<?php echo site_url(); ?>">Cuisiner</a> </h1>
-                <h2 class="col-12 pb-5">C'est pas sorcier.</h2>
+                <h1 class="col-12 pb-5">C'est pas sorcier.</h1>
             </div>
 
             <nav id="nav" >
@@ -51,12 +52,12 @@ $this->load->helper('url');
                          
                             <!-- pour chaque catégorie -->
                             <?php foreach ($categories as $item): ?>
-                            <li class="dropdown-item" ><a href="<?php echo site_url('/categorie/'.$item->Nom); ?>"><?=$item->Nom?></a></li>
+                            <a class="dropdown-item" href="<?php echo site_url('/categorie/'.$item->Nom); ?>"><?=$item->Nom?> </a>
                             <?php endforeach; ?>
                           
                         </ul>
                     </li>
-
+                    <li class="col-sm-2 hidden-xs <?php if ($page== 'recettes') {echo 'current';}?>" style="white-space: nowrap;"><a href="<?php echo site_url('recettes'); ?>">Recettes</a></li>
                     <li class="col-sm-2 hidden-xs <?php if ($page== 'contact') {echo 'current';}?>" style="white-space: nowrap;"><a href="<?php echo site_url('contact'); ?>">Nous contacter</a></li>
                     <li class="col-sm-2 hidden-xs <?php if ($page== 'apropos') {echo 'current';}?>" style="white-space: nowrap;"><a href="<?php echo site_url('apropos'); ?>">A propos</a></li>
                     

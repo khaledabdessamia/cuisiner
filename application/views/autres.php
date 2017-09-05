@@ -23,10 +23,5 @@
                                             <h3><a href="#">Dolore tempus ipsum feugiat nulla</a></h3>
                                             <p>Feugiat lorem dolor sed nullam tempus lorem ipsum dolor sit amet nullam consequat.</p>
                                         </li>
-                                        <li>
-                                            <span class="date">Jan <strong>10</strong></span>
-                                            <h3><a href="#">Blandit tempus aliquam?</a></h3>
-                                            <p>Feugiat sed tempus blandit tempus adipiscing nisl lorem ipsum dolor sit amet dolore.</p>
-                                        </li>
                                     </ul>
 </section>

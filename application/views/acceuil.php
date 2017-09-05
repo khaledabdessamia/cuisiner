@@ -28,7 +28,7 @@ $this->load->helper('url');
                             <div class="card">
                                 <img class="card-img-top" height="200" width="300" src="<?php echo site_url('images/'.$recette->lien_img) ?>" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a class="card-link" href="<?=$recette->ID?>"><?=$recette->Nom?></a></h4>
+                                    <h4 class="card-title"><a class="card-link" href="<?php echo site_url('/recette/'.$recette->ID); ?>"><?=$recette->Nom?></a></h4>
                                     <p class="card-text"><?=$recette->meta_description?>.</p>
                                     
                                 </div>

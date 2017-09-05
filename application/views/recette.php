@@ -15,7 +15,7 @@ include 'chemin.php';
 		<div class="row">
 			<div class="col-sm-8 col-xs-12 py-2 px-2">
 				<header>
-					<h2> Titre Recette</h2>
+					<h2> <?=$recette->Nom?></h2>
 				</header>
 				<nav class="nav nav-tabs" id="Tab" role="tablist">
 	  				<a class="nav-item nav-link active" id="nav-recette-tab" data-toggle="tab" href="#nav-recette" role="tab" aria-controls="nav-recette" aria-expanded="true">Recette</a>
@@ -33,10 +33,10 @@ include 'chemin.php';
 							  	</ol>
 							  	<div class="carousel-inner">
 							    	<div class="carousel-item active">
-							      		<img class="d-block w-100 img-fluid" src="images/1.jpg" alt="First slide">
+							      		<img class="d-block w-100 img-fluid" src="<?php echo site_url('images/'.$recette->lien_img);?>" alt="First slide">
 							    	</div>
 							    	<div class="carousel-item">
-							      		<img class="d-block w-100 img-fluid" src="images/3.jpg" alt="Second slide">
+							      		<img class="d-block w-100 img-fluid" src="<?php echo site_url('images/'.$recette->lien_img);?>" alt="Second slide">
 							    	</div>
 							    </div>
 							  	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -48,53 +48,54 @@ include 'chemin.php';
 								    <span class="sr-only">Next</span>
 	   						    </a>
 							</div>
+							<ul class="post-meta d-flex justify-content-around flex-wrap p-2 my-5">
+								<?php
+	 							  if($page == 'recettes')
+    	    				      {
+    							 	foreach ($categories as $cate) {
+										# code...
+										if ($cate->ID == $recette->categorie){	?>
+								    		<li><span class="badge badge-secondary"><?=$cate->Nom;?></span></li>
+									<?php
+										break;
+										}
+									}
+    							  }
+    							?>
+								
+								<li><?=$recette->date_publication?></li>
+								<li><?=$recette->nb_vue?></li>
+							</ul>
 													
 							<header>
 								<h2>Left Sidebar</h2>
-								<p>Lorem ipsum dolor sit amet feugiat</p>
+								<div class="meta meta-border">
+									<p><?=$recette->meta_description?></p>
+								</div>
 							</header>
 							<p>
-								Vestibulum scelerisque ultricies libero id hendrerit. Vivamus malesuada quam faucibus ante dignissim auctor
-								hendrerit libero placerat. Nulla facilisi. Proin aliquam felis non arcu molestie at accumsan turpis commodo.
-								Proin elementum, nibh non egestas sodales, augue quam aliquet est, id egestas diam justo adipiscing ante.
-								Pellentesque tempus nulla non urna eleifend ut ultrices nisi faucibus.
+								<?=$recette->description?>.
 							</p>
 							<p>
-								Praesent a dolor leo. Duis in felis in tortor lobortis volutpat et pretium tellus. Vestibulum ac ante nisl,
-								a elementum odio. Duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-								placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-								eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-								elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-								sit amet nullam consequat feugiat dolore tempus.
+								.
 							</p>
 							<section>
 								<header>
 									<h3>Something else</h3>
 								</header>
 								<p>
-									Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-									placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-									eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-									elementum, mi sit amet porttitor lorem ipsum dolor sit amet, 	consectetur 		adipiscing elit. Lorem ipsum dolor
-									sit amet nullam consequat feugiat dolore u
+									u
 								</p>
 								<p>
-															Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-															eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-															elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-															sit amet nullam consequat feugiat dolore tempus.
+									met nullam consequat feugiat dolore tempus.
 								</p>
 							</section>
 							<section>
 								<header>
-									<h3>So in conclusion ...</h3>
+									<h3> ...</h3>
 								</header>
 								<p>
-															Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-															eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-															elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-															sit amet nullam consequat feugiat dolore tempus. Elementum odio duis semper risus et lectus commodo fringilla.
-															Maecenas sagittis convallis justo vel mattis.
+									sagittis convallis justo vel mattis.
 								</p>
 							</section>
 						</article>
@@ -106,7 +107,7 @@ include 'chemin.php';
 			    		<div class="row justify-content-center">
 			    			<div class="col-12 p-3">
 					  		<div class="embed-responsive embed-responsive-16by9">
-				           		 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UQ0Yz3cacZw" allowfullscreen=""></iframe>
+				           		 <iframe class="embed-responsive-item" src="<?=$recette->lien_video?>" allowfullscreen=""></iframe>
 
 							</div>
 							</div>

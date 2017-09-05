@@ -28,10 +28,10 @@ class Acceuil extends CI_Controller {
 
 		$data['categories'] = $this->cuisiner_db->get_cate();
 
-			foreach ($data['categories'] as $categorie) {
-				# code...
+		foreach ($data['categories'] as $categorie) {
+			# code...
 			
-				$data['recettes'][$categorie->Nom] = $this->cuisiner_db->get_by_cate($categorie->ID,3,0);
+			$data['recettes'][$categorie->Nom] = $this->cuisiner_db->get_by_cate($categorie->ID,3,0);
 			
 			}
 		
@@ -41,7 +41,7 @@ class Acceuil extends CI_Controller {
         $this->load->view('footer');
 	}
 
-	public function categori($categorie)
+	public function categorie($categorie,$page=0)
 	{
 		$data['page']='categorie';
 
@@ -54,7 +54,7 @@ class Acceuil extends CI_Controller {
 			if ($cate->Nom == $categorie)
 			{
 				$ID = $cate->ID;
-
+				break;
 			}
 		}
 			
@@ -64,6 +64,48 @@ class Acceuil extends CI_Controller {
 		$this->load->view('header',$data);
         $this->load->view('recettes');
         $this->load->view('footer');
+
+	}
+
+	public function recettes($page=0)
+	{
+		# code...
+		$data['page']='recettes';
+
+			$this->load->model('cuisiner_db');
+
+		$data['categories'] = $this->cuisiner_db->get_cate();
+
+		$data['recettes'] = $this->cuisiner_db->get_recettes(8,0);
+
+		$this->load->view('header',$data);
+        $this->load->view('recettes');
+        $this->load->view('footer');
+
+	}
+
+	public function recette($ID)
+	{
+		# code...
+		$data['page']='recettes';
+		
+		$this->load->model('cuisiner_db');
+
+		$data['categories'] = $this->cuisiner_db->get_cate();
+
+
+		$data['recette']=$this->cuisiner_db->get_recette($ID);
+		if(isset($data['recette']))
+		{
+			$this->load->view('header',$data);
+        	$this->load->view('recette');
+        	$this->load->view('footer');
+		}
+		else
+		{
+			$this->load->view('error_404');  	
+		}
+		
 
 	}
 
