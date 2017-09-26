@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -26,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <h4>Navigation</h4>
                                             <!-- Menu-->
                                             <ul class="menu-footer">
-                                                <li>- <a href="<?php site_url(); ?>">Accueil</a> </li>
+                                                <li>- <a href="<?php echo site_url(); ?>">Accueil</a> </li>
                                                 <li>- <a href="<?php echo site_url('recettes'); ?>">Recattes</a></li>
                                                 <li>- <a href="https://gen-42.com/">Gen 42</a></li>
                                                 <li>- <a href="<?php echo site_url('contact'); ?>">Nous contacter</a></li>
@@ -110,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
 					</section>
 	</div>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 </div>
 
@@ -126,25 +127,105 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script>window.jQuery || document.write('<script src="bootstrap/js/jquery.min.js"><\/script>')</script>
     
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo site_url('bootstrap-4.0.0-beta/dist/js/bootstrap.js'); ?>"></script>
 
 <script id="dsq-count-scr" src="//http-localhost-cuisiner.disqus.com/count.js" async></script>
 
-<a href="#" id="toTop" style="display: inline;"><span id="toTopHover"></span>To Top</a>
+
+
 <script type="text/javascript">
 
-    jQuery.noConflict();
+   var rect = $("#header-wrapper + *").offset();
+    
+  window.onscroll = function() {scrollFunction()};
 
-    jQuery.noConflict()(function(){
-        jQuery.UItoTop({ easingType: 'easeOutQuart' });
-    });
-  
+function scrollFunction() {
+    
+     
+    if (document.body.scrollTop > rect.top || document.documentElement.scrollTop > rect.top) {
+        document.getElementById("myBtn").style.display = "block";
+        document.getElementById("fixedHeader").style.display = "flex";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+        document.getElementById("fixedHeader").style.display = "none";
+        $('#suggestions').hide();
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+}
+
 </script>
+
+<script type="text/javascript">
+    
+    //
+
+      function lookup(inputString) {
+        
+            if(inputString.length == 0) {
+                $('#suggestions').hide();
+
+                
+            } else {
+                $.post("<?php echo site_url('Acceuil/autocomplete/'); ?>", {queryString: ""+inputString+""}, function(data){
+                    if(data.length > 0) {
+                        $('#suggestions').show();
+
+                        $('#autoSuggestionsList').html(data);
+
+                    }
+                });
+            }
+        }
+
+        function fill(thisValue) {
+          var id = $(event.target).parent().parent().parent().attr('id');
+          if (id == 'suggestions1') {
+            
+
+            $('#search1').val(thisValue);
+
+            setTimeout("$('#suggestions1').hide();", 200);
+            }
+            else
+            {
+                $('#search').val(thisValue);
+
+                setTimeout("$('#suggestions').hide();", 200);
+            }
+        } 
+        // 
+
+        function lookup1(inputString) {
+        
+            if(inputString.length == 0) {
+
+                $('#suggestions1').hide();
+            } else {
+                $.post("<?php echo site_url('Acceuil/autocomplete/'); ?>", {queryString: ""+inputString+""}, function(data){
+                    if(data.length > 0) {
+
+                        $('#suggestions1').show();
+
+                        $('#autoSuggestionsList1').html(data);
+                    }
+                });
+            }
+        }
+
+
+</script>
+
 </body>
 </html>

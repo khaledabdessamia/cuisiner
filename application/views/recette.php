@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->helper('url');
+$this->load->helper('date');
+$datestring='d/m/Y';
 ?>
 
 <div id="main-wrapper" class="row">
@@ -50,8 +51,7 @@ include 'chemin.php';
 							</div>
 							<ul class="post-meta d-flex justify-content-around flex-wrap p-2 my-5">
 								<?php
-	 							  if($page == 'recettes')
-    	    				      {
+	 							  
     							 	foreach ($categories as $cate) {
 										# code...
 										if ($cate->ID == $recette->categorie){	?>
@@ -60,10 +60,10 @@ include 'chemin.php';
 										break;
 										}
 									}
-    							  }
+    							  
     							?>
 								
-								<li><?=$recette->date_publication?></li>
+								<li><?=nice_date($recette->date_publication, $datestring)?></li>
 								<li><?=$recette->nb_vue?></li>
 							</ul>
 													

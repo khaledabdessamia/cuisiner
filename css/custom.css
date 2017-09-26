@@ -14,14 +14,17 @@
   box-sizing: border-box;
 }
 
+html
+{
+  font-size: 15px;
+}
 body
 {
-
 background: #252122;
 text-decoration: none;
-font-family: 'cac_champagneregular';
+/*font-family: 'cac_champagneregular';
+*/
 }
-
 .row
 {
   margin-right: 0 !important;
@@ -42,10 +45,7 @@ text-decoration :none;
 color: inherit;
 }
 
-#nav
-{
-padding: 15px;
-}
+
 
 #nav > ul > li 
 {
@@ -87,6 +87,12 @@ li.dropdown-item > a
 color: inherit;
 }
 
+#fixedHeader
+{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+}
 .mainSearch {
   background-color: #fff;
   max-width: 90%;
@@ -113,6 +119,10 @@ color: inherit;
   width: 100%;
 }
 
+
+
+
+
 #banner {
 position: relative;
 padding: 8em 0;
@@ -129,6 +139,8 @@ text-align: center;
 display: inline-block;
 padding: 2.5em 5em;
 border-radius: 5px;
+font-family: 'cac_champagneregular';
+font-size: 2rem;
 }
 
 #banner header h2 {
@@ -147,6 +159,7 @@ vertical-align: baseline;
   font-style: normal;
   margin: 0;
   display: block;
+  font-family: inherit;
 }
 
 #main-wrapper {
@@ -215,7 +228,6 @@ border-left-color: #5bc0de !important;
   background-repeat:no-repeat;
   background-position:center;
   background-position-y:0px;
-  margin-top:112px;
   
 }
 
@@ -245,7 +257,6 @@ padding: 3em 0 3em 0;
     top: 0;
     left: 0;
     width: 100%;
-    background: url("images/bg01.png");
     background-size: 100% 100%;
     z-index: 0;
     opacity: 0.5;
@@ -474,6 +485,11 @@ ul.social {
   height: 20rem;
 }
 
+.b:hover
+{
+  text-decoration: none;
+}
+
 .media
 {
   height: 12em; 
@@ -510,31 +526,28 @@ form > div
 .footer-logo {
     text-align: center;
 }
-
-#toTop {
-    display: none;
-    text-decoration: none;
-    position: fixed;
-    bottom: 60px;
-    right: 10px;
-    overflow: hidden;
-    width: 51px;
-    height: 51px;
-    border: none;
-    text-indent: 100%;
-    background: url(image/ui.totop.png) no-repeat left top;
+#fixedHeader
+{
+  display: none;
+  position: fixed;
+  z-index: 9999;
 }
 
-#toTopHover {
-    background: url(image/ui.totop.png) no-repeat left -51px;
-    width: 51px;
-    height: 51px;
-    display: block;
-    overflow: hidden;
-    float: left;
-    opacity: 0;
-    -moz-opacity: 0;
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 50px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #007bff; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
 }
-#toTop:active, #toTop:focus {
-  outline:none;
+
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
 }

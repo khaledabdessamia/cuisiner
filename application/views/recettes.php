@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->helper('url');
+$this->load->helper('date');
+$datestring='d/m/Y';
 ?>
 
 <div id="main-wrapper" class="row">
@@ -19,7 +20,7 @@ $this->load->helper('url');
 				<div class="container">
 					<div class="row justify-content-between">
 						<div class="col-4 align-self-start ">
-	  						<span></span>
+	  						<span><?php echo ' Il y a environ '.$count.' recettes ';?></span>
 						</div>
 						<div class="col-4 align-self-end ">
 	  						<button class="btn btn-primary align-self-end" style="left: 20%;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -53,7 +54,7 @@ $this->load->helper('url');
 					</div>	
 
 					<?php foreach ($recettes as $recette): ?>
-					<a href="<?php echo site_url('/recette/'.$recette->ID); ?>">
+					<a class="b" href="<?php echo site_url('recette/'. $recette->ID); ?>">
 					<div  class=" media p-3 m-2">
  							<img class="d-flex mr-3 figure-img img-fluid rounded" width="30%" src="<?=site_url('/images/').$recette->lien_img?>" alt="Generic placeholder image">
   								<div class="media-body">
@@ -78,7 +79,8 @@ $this->load->helper('url');
     								<div class="row">
                                         <div class="col-md-12">
                                             <div class="post-meta">
-                                                <span><i class="fa fa-calendar"></i> <?=$recette->date_publication?> </span>
+                                                <span><i class="fa fa-calendar"></i>
+                                                <?=nice_date($recette->date_publication,$datestring)?></span>
                                                 <!--span><i class="fa fa-user"></i> Par <a href="#" onclick="return false;"> </a> </span-->
                                                 <span class="eye-right"><?=$recette->nb_vue?> <i class="fa fa-eye"></i></span>
                                             </div>
@@ -89,6 +91,10 @@ $this->load->helper('url');
 					</div>
 					</a>
 					<?php endforeach;?>
+					<?php
+					include 'pagination.php';
+					?>
+
 				</div>
 				
 			</div>
@@ -96,19 +102,9 @@ $this->load->helper('url');
 			
 
 			<div class="col-sm-4 col-xs-12 py-5 px-2 mt-3">
-
-				<section class="card">
-					<a href="#" class="image featured"><img style="max-width: 100%;
-						height: auto;padding: 0;" class="col-sm-12" src="images/9.jpg" alt=""></a>
-					<header class="py-3 px-3">
-						<h3>Sed etiam lorem nulla</h3>
-					</header>
-					<p class="py-3 px-3">Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-					<footer class="py-3 px-3">
-						<a href="#" class="btn btn-dark alt">Magna sed taciti</a>
-					</footer>
-				</section>
-				
+					<?php 	
+						include 'autres1.php';	
+					?>
 					<?php
 					include 'autres.php';
 					?>

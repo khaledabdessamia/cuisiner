@@ -1,5 +1,12 @@
+          
 <section style="background-color: whitesmoke;">
-            <div class="container">
+
+            <div class="container pt-3">
+            <?php
+
+        include 'chemin.php';
+
+    ?>
                 <div class="row">
                     <div class="col-md-12 p-2">
                         <h1 style="text-align: left;">Contactez Gen 42</h1>
